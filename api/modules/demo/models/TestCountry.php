@@ -33,8 +33,8 @@ class TestCountry extends \common\models\demo\TestCountry implements Linkable
     public function beforeSave($insert)
     {
         // Use current login user's ID if userId is null
-        if ($this->userId == null) {
-            $this->userId = Yii::$app->user->identity->getId();
+        if ($this->user_id == null) {
+            $this->user_id = Yii::$app->user->identity->getId();
         }
         return parent::beforeSave($insert);
     }

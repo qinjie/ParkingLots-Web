@@ -87,7 +87,7 @@ class AccountController extends Controller
     {
         $token_string = Yii::$app->getRequest()->getQueryParam('access-token');
         $id = Yii::$app->getUser()->identity->getId();
-        $token = UserToken::findOne(['userId' => $id, 'token' => $token_string, 'label' => 'ACCESS']);
+        $token = UserToken::findOne(['user_id' => $id, 'token' => $token_string, 'label' => 'ACCESS']);
         if (!$token) {
             throw new NotFoundHttpException('Token not found: ' . $token_string);
         } else {
@@ -100,6 +100,6 @@ class AccountController extends Controller
     {
         $id = Yii::$app->getUser()->identity->getId();
         Yii::$app->response->statusCode = 204;
-        return UserToken::deleteAll(['userId' => $id, 'label' => 'ACCESS']);
+        return UserToken::deleteAll(['user_id' => $id, 'label' => 'ACCESS']);
     }
 }

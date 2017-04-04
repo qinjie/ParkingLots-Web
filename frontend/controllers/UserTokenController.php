@@ -16,7 +16,7 @@ class UserTokenController extends \yii\web\Controller
         if(!$userId)
             $this->goBack();
         $dataProvider = new ActiveDataProvider([
-            'query' => UserToken::find()->where(['userId'=>$userId])->orderBy('created'),
+            'query' => UserToken::find()->where(['user_id'=>$userId])->orderBy('created'),
         ]);
 
         return $this->render('index', [

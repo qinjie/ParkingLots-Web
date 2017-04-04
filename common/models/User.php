@@ -417,7 +417,7 @@ class User extends ActiveRecord implements IdentityInterface
     public
     function getUserTokens()
     {
-        return $this->hasMany(UserToken::className(), ['userId' => 'id']);
+        return $this->hasMany(UserToken::className(), ['user_id' => 'id']);
     }
 
     /**
